@@ -1,0 +1,96 @@
+/* Footer Component Styles */
+
+/* Footer Styles */
+.footer {
+  background: var(--gray-900);
+  color: var(--text-white);
+  padding: var(--space-2xl) 0;
+  margin-top: 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.footer-text {
+  margin-bottom: var(--space-md);
+  opacity: 0.8;
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--text-white);
+  text-decoration: none;
+  opacity: 0.8;
+  transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+  opacity: 1;
+  color: var(--accent-indigo);
+}
+
+/* Responsive Design for Footer */
+/* Tablet - 768px and below */
+@media (max-width: 768px) {
+  .footer {
+    padding: var(--space-xl) 0;
+  }
+  
+  .footer-links {
+    gap: var(--space-md);
+    justify-content: center;
+  }
+  
+  .footer-text {
+    font-size: 0.9rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.9rem;
+  }
+}
+
+/* Mobile Large - 425px and below */
+@media (max-width: 425px) {
+  .footer {
+    padding: var(--space-lg) 0;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+    gap: var(--space-sm);
+    align-items: center;
+  }
+  
+  .footer-text {
+    font-size: 0.875rem;
+    margin-bottom: var(--space-sm);
+  }
+  
+  .footer-links a {
+    font-size: 0.875rem;
+    padding: var(--space-xs) 0;
+  }
+}
+
+/* Mobile Small - 320px and below */
+@media (max-width: 320px) {
+  .footer {
+    padding: var(--space-md) 0;
+  }
+  
+  .footer-text {
+    font-size: 0.8rem;
+  }
+  
+  .footer-links a {
+    font-size: 0.8rem;
+  }
+}

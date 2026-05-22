@@ -1,0 +1,3 @@
+com/jobportal/tests/utils/ApiTestUtils.class
+com/jobportal/tests/api/GetAllJobsTest.class
+com/jobportal/tests/api/RegisterUserTest.class

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Portal - Style Preview</title>
+    <style>
+        /* Import the same font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        /* CSS Variables for consistent theming */
+        :root {
+          /* Primary Colors - Professional Orange Palette */
+          --primary-orange: #ea580c;
+          --primary-orange-light: #f97316;
+          --primary-orange-dark: #c2410c;
+          --primary-orange-50: #fff7ed;
+          --primary-orange-100: #ffedd5;
+          
+          /* Secondary Colors - Professional Amber/Gold */
+          --secondary-amber: #d97706;
+          --secondary-amber-light: #f59e0b;
+          --secondary-coral: #fb7185;
+          --secondary-red: #dc2626;
+          
+          /* Accent Colors */
+          --accent-indigo: #6366f1;
+          --accent-purple: #8b5cf6;
+          --accent-orange: #f97316;
+          --accent-pink: #ec4899;
+          
+          /* Status Colors */
+          --success: #10b981;
+          --success-light: #34d399;
+          --success-bg: #d1fae5;
+          --warning: #f59e0b;
+          --warning-light: #fbbf24;
+          --warning-bg: #fef3c7;
+          --error: #ef4444;
+          --error-light: #f87171;
+          --error-bg: #fee2e2;
+          --info: #ea580c;
+          --info-light: #f97316;
+          --info-bg: #ffedd5;
+          
+          /* Neutral Colors - High Contrast for Accessibility */
+          --white: #ffffff;
+          --gray-50: #f9fafb;
+          --gray-100: #f3f4f6;
+          --gray-200: #e5e7eb;
+          --gray-300: #d1d5db;
+          --gray-400: #9ca3af;
+          --gray-500: #6b7280;
+          --gray-600: #4b5563;
+          --gray-700: #374151;
+          --gray-800: #1f2937;
+          --gray-900: #111827;
+          --black: #000000;
+          
+          /* Background Colors */
+          --bg-primary: var(--white);
+          --bg-secondary: var(--gray-50);
+          --bg-tertiary: var(--gray-100);
+          --bg-dark: var(--gray-900);
+          --bg-surface: var(--white);
+          
+          /* Text Colors - High Contrast */
+          --text-primary: var(--gray-900);
+          --text-secondary: var(--gray-700);
+          --text-muted: var(--gray-500);
+          --text-white: var(--white);
+          --text-inverse: var(--white);
+          
+          /* Gradients */
+          --gradient-primary: linear-gradient(135deg, var(--primary-orange) 0%, var(--primary-orange-light) 100%);
+          --gradient-secondary: linear-gradient(135deg, var(--secondary-amber) 0%, var(--secondary-amber-light) 100%);
+          --gradient-accent: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-orange) 100%);
+          --gradient-hero: linear-gradient(135deg, var(--primary-orange) 0%, var(--secondary-amber) 50%, var(--accent-yellow) 100%);
+          
+          /* Shadows */
+          --shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+          --shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+          --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+          --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+          --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+          
+          /* Border Radius */
+          --radius-sm: 0.375rem;
+          --radius-md: 0.5rem;
+          --radius-lg: 0.75rem;
+          --radius-xl: 1rem;
+          --radius-2xl: 1.5rem;
+          --radius-full: 9999px;
+          
+          /* Transitions */
+          --transition-fast: all 0.15s ease-in-out;
+          --transition-normal: all 0.3s ease-in-out;
+          --transition-slow: all 0.5s ease-in-out;
+          
+          /* Spacing */
+          --space-xs: 0.25rem;
+          --space-sm: 0.5rem;
+          --space-md: 1rem;
+          --space-lg: 1.5rem;
+          --space-xl: 2rem;
+          --space-2xl: 3rem;
+          --space-3xl: 4rem;
+        }
+        
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+        
+        body {
+          font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+          background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--primary-orange-50) 100%);
+          color: var(--text-primary);
+          line-height: 1.6;
+          font-size: 16px;
+          min-height: 100vh;
+          padding: 2rem;
+        }
+        
+        .container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        
+        .header {
+          background: var(--bg-primary);
+          padding: 1.5rem;
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-md);
+          margin-bottom: 2rem;
+          border: 1px solid var(--gray-200);
+        }
+        
+        .card {
+          background: var(--bg-primary);
+          border-radius: var(--radius-lg);
+          box-shadow: var(--shadow-sm);
+          border: 1px solid var(--gray-100);
+          padding: 2rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.75rem 1.5rem;
+          font-size: 0.875rem;
+          font-weight: 600;
+          text-decoration: none;
+          border: none;
+          border-radius: var(--radius-md);
+          cursor: pointer;
+          transition: var(--transition-fast);
+          margin-right: 1rem;
+        }
+        
+        .btn-primary {
+          background: var(--gradient-primary);
+          color: var(--text-white);
+          box-shadow: var(--shadow-sm);
+        }
+        
+        .btn-secondary {
+          background: var(--bg-primary);
+          color: var(--text-primary);
+          border: 1px solid var(--gray-300);
+          box-shadow: var(--shadow-xs);
+        }
+        
+        .alert {
+          padding: 1rem 1.5rem;
+          border-radius: var(--radius-md);
+          margin-bottom: 1.5rem;
+          border: 1px solid transparent;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+        }
+        
+        .alert-success {
+          background-color: var(--success-bg);
+          color: var(--gray-800);
+          border-color: var(--success);
+          border-left: 4px solid var(--success);
+        }
+        
+        .alert-error {
+          background-color: var(--error-bg);
+          color: var(--gray-800);
+          border-color: var(--error);
+          border-left: 4px solid var(--error);
+        }
+        
+        .form-control {
+          width: 100%;
+          padding: 0.75rem;
+          border: 1px solid var(--gray-300);
+          border-radius: var(--radius-md);
+          font-size: 1rem;
+          background: var(--bg-primary);
+          color: var(--text-primary);
+          margin-bottom: 1rem;
+        }
+        
+        h1, h2, h3 {
+          color: var(--text-primary);
+          margin-bottom: 1rem;
+        }
+        
+        h1 {
+          font-size: 2.5rem;
+          font-weight: 800;
+        }
+        
+        h2 {
+          font-size: 2rem;
+          font-weight: 700;
+        }
+        
+        h3 {
+          font-size: 1.5rem;
+          font-weight: 600;
+        }
+        
+        p {
+          color: var(--text-secondary);
+          margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>💼 Job Portal - Professional Theme Preview</h1>
+            <p>This preview shows the professional styling with high contrast and accessibility.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Typography & Contrast Test</h2>
+            <h3>This is a heading level 3</h3>
+            <p>This is regular paragraph text. It should be clearly readable with good contrast against the background. The color palette uses professional blues, teals, and high-contrast grays for optimal readability.</p>
+            <p>All text should be easily visible and accessible, with no dark theme issues.</p>
+        </div>
+        
+        <div class="card">
+            <h2>Button Styles</h2>
+            <button class="btn btn-primary">Primary Button</button>
+            <button class="btn btn-secondary">Secondary Button</button>
+        </div>
+        
+        <div class="card">
+            <h2>Alert System</h2>
+            <div class="alert alert-success">
+                ✅ Success alert with high contrast text
+            </div>
+            <div class="alert alert-error">
+                ❌ Error alert with high contrast text
+            </div>
+        </div>
+        
+        <div class="card">
+            <h2>Form Elements</h2>
+            <input type="text" class="form-control" placeholder="Sample input field" value="Sample text">
+            <input type="email" class="form-control" placeholder="Email input">
+            <textarea class="form-control" placeholder="Textarea with good contrast"></textarea>
+        </div>
+        
+        <div class="card">
+            <h2>Professional Color Palette</h2>
+            <p><strong>Primary Text:</strong> This text uses the primary color (dark gray) for maximum readability.</p>
+            <p style="color: var(--text-secondary);"><strong>Secondary Text:</strong> This uses the secondary text color for less emphasis.</p>
+            <p style="color: var(--text-muted);"><strong>Muted Text:</strong> This uses the muted color for subtle information.</p>
+            <p style="color: var(--primary-orange);"><strong>Link Color:</strong> This shows the primary orange color used for links and accents.</p>
+        </div>
+    </div>
+</body>
+</html>

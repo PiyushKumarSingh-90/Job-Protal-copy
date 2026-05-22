@@ -1,0 +1,47 @@
+# Maven
+target/
+*.jar
+*.war
+*.ear
+*.pom
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Eclipse
+.project
+.classpath
+.settings/
+
+# IntelliJ
+*.iml
+*.iws
+*.ipr
+
+# NetBeans
+nbproject/
+*.nbattrs
+
+# Build
+build/
+dist/
+bin/
+
+# Node (if needed for testing purposes)
+node_modules/
+npm-debug.log
+.env
+.env.local
+
+# Test Reports
+surefire-reports/
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
