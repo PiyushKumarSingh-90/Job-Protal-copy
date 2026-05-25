@@ -225,11 +225,11 @@ public class RegisterUITest {
             System.out.println("Login form loaded");
             
             // Fill in login form
-            emailInput.sendKeys("leethakare69@gmail.com");
-            System.out.println("Entered email: leethakare69@gmail.com");
+            emailInput.sendKeys("piyush@gmail.com");
+            System.out.println("Entered email: piyush@gmail.com");
             
             WebElement passwordInput = driver.findElement(By.name("password"));
-            passwordInput.sendKeys("password123");
+            passwordInput.sendKeys("123456");
             System.out.println("Entered password");
             
             // Submit form
