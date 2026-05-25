@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-05-25T14:22:33 IST" name="Auth UI Suite" finished-at="2026-05-25T14:23:08 IST" duration-ms="34866">
+    <groups>
+    </groups>
+    <test started-at="2026-05-25T14:22:33 IST" name="Signup and Login Only" finished-at="2026-05-25T14:23:08 IST" duration-ms="34866">
+      <class name="com.jobportal.tests.ui.RegisterUITest">
+        <test-method signature="testLogin()" started-at="2026-05-25T14:22:33 IST" name="testLogin" finished-at="2026-05-25T14:22:43 IST" duration-ms="10187" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testLogin -->
+        <test-method signature="testRegisterEmployer()" started-at="2026-05-25T14:22:33 IST" name="testRegisterEmployer" finished-at="2026-05-25T14:22:59 IST" duration-ms="26130" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegisterEmployer -->
+        <test-method signature="testRegisterJobSeeker()" started-at="2026-05-25T14:22:33 IST" name="testRegisterJobSeeker" finished-at="2026-05-25T14:23:08 IST" duration-ms="34814" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testRegisterJobSeeker -->
+      </class> <!-- com.jobportal.tests.ui.RegisterUITest -->
+    </test> <!-- Signup and Login Only -->
+  </suite> <!-- Auth UI Suite -->
+</testng-results>

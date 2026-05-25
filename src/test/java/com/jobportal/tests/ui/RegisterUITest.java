@@ -1,10 +1,13 @@
 package com.jobportal.tests.ui;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.time.Duration;
+
 import org.junit.After;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,9 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-
-import static org.junit.Assert.assertTrue;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * Selenium UI Tests for User Registration
@@ -33,13 +34,29 @@ public class RegisterUITest {
         
         // Initialize WebDriver
         driver = new ChromeDriver();
+        driver.manage().window().maximize();
         wait = new WebDriverWait(driver, Duration.ofSeconds(WAIT_TIME));
         
         System.out.println("Browser opened: " + driver.getClass().getSimpleName());
     }
 
+    private void submitForm() {
+        WebElement submitButton = wait.until(
+            ExpectedConditions.presenceOfElementLocated(By.xpath("//button[@type='submit']"))
+        );
+        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView({block: 'center'});", submitButton);
+        wait.until(ExpectedConditions.elementToBeClickable(submitButton));
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();", submitButton);
+    }
+
     @After
     public void tearDown() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         if (driver != null) {
             driver.quit();
             System.out.println("Browser closed");
@@ -82,6 +99,10 @@ public class RegisterUITest {
             WebElement passwordInput = driver.findElement(By.name("password"));
             passwordInput.sendKeys("password123");
             System.out.println("Entered password");
+
+            WebElement confirmPasswordInput = driver.findElement(By.name("confirmPassword"));
+            confirmPasswordInput.sendKeys("password123");
+            System.out.println("Entered confirm password");
             
             // Select role dropdown
             WebElement roleSelect = driver.findElement(By.name("role"));
@@ -90,14 +111,11 @@ public class RegisterUITest {
             System.out.println("Selected role: jobseeker");
             
             // Submit form
-            WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
-            submitButton.click();
+            submitForm();
             System.out.println("Clicked Submit button");
             
-            // Wait for success message or redirect
-            Thread.sleep(2000);
-            
-            // Check if redirected to home or success page
+            // Wait for redirect away from register page
+            wait.until(d -> !d.getCurrentUrl().contains("/register"));
             String currentUrl = driver.getCurrentUrl();
             System.out.println("Current URL after registration: " + currentUrl);
             
@@ -117,7 +135,8 @@ public class RegisterUITest {
      * Test successful user registration as an employer
      */
     @Test
-    public void testRegisterEmployer() {
+    public void testRegisterEmployer() 
+    {
         try {
             // Navigate to application
             driver.navigate().to(BASE_URL);
@@ -149,6 +168,10 @@ public class RegisterUITest {
             WebElement passwordInput = driver.findElement(By.name("password"));
             passwordInput.sendKeys("password123");
             System.out.println("Entered password");
+
+            WebElement confirmPasswordInput = driver.findElement(By.name("confirmPassword"));
+            confirmPasswordInput.sendKeys("password123");
+            System.out.println("Entered confirm password");
             
             // Select role dropdown
             WebElement roleSelect = driver.findElement(By.name("role"));
@@ -157,14 +180,11 @@ public class RegisterUITest {
             System.out.println("Selected role: employer");
             
             // Submit form
-            WebElement submitButton = driver.findElement(By.xpath("//button[@type='submit']"));
-            submitButton.click();
+            submitForm();
             System.out.println("Clicked Submit button");
             
-            // Wait for success
-            Thread.sleep(2000);
-            
-            // Check if redirected
+            // Wait for redirect away from register page
+            wait.until(d -> !d.getCurrentUrl().contains("/register"));
             String currentUrl = driver.getCurrentUrl();
             System.out.println("Current URL after registration: " + currentUrl);
             
@@ -184,7 +204,8 @@ public class RegisterUITest {
      * Test login functionality
      */
     @Test
-    public void testLogin() {
+    public void testLogin()
+    {
         try {
             // Navigate to application
             driver.navigate().to(BASE_URL);

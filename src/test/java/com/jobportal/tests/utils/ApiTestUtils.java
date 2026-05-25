@@ -45,7 +45,8 @@ public class ApiTestUtils {
     /**
      * Login user and return the authentication token
      */
-    public static String loginAndGetToken(String email, String password) {
+    public static String loginAndGetToken(String email, String password) 
+    {
         String requestBody = String.format(
                 "{\n  \"email\": \"%s\",\n  \"password\": \"%s\"\n}",
                 email, password
@@ -66,7 +67,8 @@ public class ApiTestUtils {
     /**
      * Get the current user information
      */
-    public static Response getCurrentUser(String token) {
+    public static Response getCurrentUser(String token) 
+    {
         return RestAssured.given()
                 .contentType(ContentType.JSON)
                 .header("Authorization", "Bearer " + token)

@@ -1,7 +1,10 @@
 package com.jobportal.tests.ui;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import java.time.Duration;
+import java.util.List;
+
 import org.junit.After;
+import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,15 +14,13 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.time.Duration;
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
+import io.github.bonigarcia.wdm.WebDriverManager;
 
 /**
  * Selenium UI Tests for Viewing Jobs
  */
-public class JobsUITest {
+public class JobsUITest 
+{
 
     private WebDriver driver;
     private WebDriverWait wait;
@@ -40,6 +41,12 @@ public class JobsUITest {
 
     @After
     public void tearDown() {
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
         if (driver != null) {
             driver.quit();
             System.out.println("Browser closed");
@@ -50,7 +57,8 @@ public class JobsUITest {
      * Test viewing jobs list
      */
     @Test
-    public void testViewJobsList() {
+    public void testViewJobsList() 
+    {
         try {
             // Navigate to jobs page
             driver.navigate().to(BASE_URL + "/jobs");
@@ -77,7 +85,8 @@ public class JobsUITest {
      * Test viewing job details
      */
     @Test
-    public void testViewJobDetails() {
+    public void testViewJobDetails() 
+    {
         try {
             // Navigate to jobs page
             driver.navigate().to(BASE_URL + "/jobs");
@@ -117,7 +126,8 @@ public class JobsUITest {
      * Test home page loads
      */
     @Test
-    public void testHomePageLoads() {
+    public void testHomePageLoads() 
+    {
         try {
             // Navigate to home page
             driver.navigate().to(BASE_URL);
